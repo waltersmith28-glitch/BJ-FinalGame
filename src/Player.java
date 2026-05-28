@@ -1,7 +1,7 @@
 public class Player {
-    Card[] hand;
-    int numOfCards = 0;
-    boolean bust = false;
+    private Card[] hand;
+    private int numOfCards = 0;
+    private boolean bust = false;
 
 
     public Player(Card Card1, Card Card2) {
@@ -29,7 +29,7 @@ public class Player {
 
     public void printInfo() {
         for (int a = 0; a < numOfCards; a++) {
-            System.out.println(hand[a].value + " of " + hand[a].suite);
+            System.out.println(hand[a].getValue() + " of " + hand[a].getSuite());
         }
         System.out.println("=======================");
     }
@@ -37,8 +37,23 @@ public class Player {
     public int getHandValue() {
         int sum = 0;
         for(int i = 0; i < hand.length; i++){
-            sum = sum + hand[i].value;
+            sum = sum + hand[i].getValue();
         }
         return sum;
+    }
+
+    public Card[] getHand() {
+        return hand;
+    }
+
+    public boolean getBust() {
+        return bust;
+    }
+    public void setBust(boolean isBust) {
+        bust = isBust;
+    }
+
+    public int getNumOfCards() {
+        return numOfCards;
     }
 }

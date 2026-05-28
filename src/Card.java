@@ -1,7 +1,7 @@
 public class Card {
-    String suite;
-    String name;
-    int value;
+    private String suite;
+    private String name;
+    private int value;
 
     public Card (String suiteInput, String nameInput){
         suite = suiteInput;
@@ -21,6 +21,14 @@ public class Card {
         else{
             value = Integer.parseInt(name);
         }
+    }
+
+    public int getValue(){
+        return value;
+    }
+
+    public String getSuite() {
+        return suite;
     }
 
     public void printInfo(){

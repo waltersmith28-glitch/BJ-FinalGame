@@ -183,7 +183,7 @@ public class BasicGameApp implements Runnable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == 72 && currentPlayer == 0 && user.bust == false) {
+        if(e.getKeyCode() == 72 && currentPlayer == 0 && user.getBust() == false) {
             user.hit(deck[indexInDeck]);
             indexInDeck = indexInDeck + 1;
             user.printInfo();
@@ -191,7 +191,7 @@ public class BasicGameApp implements Runnable, KeyListener {
             System.out.println(user.getHandValue());
             if (user.getHandValue() > 21) {
                 System.out.println("You Bust!");
-                user.bust = true;
+                user.setBust(true);
                 currentPlayer ++;
             }
             else if(user.getHandValue() == 21){
@@ -217,7 +217,7 @@ public class BasicGameApp implements Runnable, KeyListener {
             if(dealer.getHandValue() > 21 && user.getHandValue() <= 21 && currentPlayer == 2){
                 System.out.println("Dealer Bust, You Win!");
             }
-            else if(user.bust == true){
+            else if(user.getBust() == true){
                 System.out.println("You lose!");
             }
             else if(user.getHandValue() > dealer.getHandValue() && user.getHandValue() < 21 && currentPlayer == 2){
